@@ -1,12 +1,12 @@
 #include "sort.h"
 
 /**
- * bubble_sort - bubble sort algothm
+ * insertion_sort_list - insertion sort list algorthms
  * @size: size input
  * @array: pointer input
  * Return: No Return
  */
- void selection_sort(int *array, size_t size)
+ void insertion_sort_list(listint_t **list)
  {
-	 hola hola mundo 
+	// hola hola mundo 
  }
