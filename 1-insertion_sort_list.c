@@ -5,45 +5,40 @@
  * @list: list pointer
  * Return: No Return
  */
- void insertion_sort_list(listint_t **list)
- {
-	int n=0;
-	listint_t *cur;
-	cur=*list;
-	if (cur->next==NULL) //there is only one element in list
+void insertion_sort_list(listint_t **list)
+{
+	listint_t *curr, *swap, *tmp;
+
+	if (!list || *list == NULL)
 		return;
-	
-	listint_t *end,*tmp;
-	while(cur->next!=NULL)
-		cur=cur->next; //reach the last node
-	while(cur->prev!=NULL)
+	curr = *list;
+	/* validate if there is only one element in list */
+	if (curr->next == NULL)
+		return;
+	while (curr->next != NULL)
 	{
-		end=cur;
-		tmp=cur->prev;
-		cur=cur->prev;
-		while(tmp) //comparison starts here
+		swap = curr->next;
+		/* Comparison starts here */
+		if (curr->n > swap->n)
 		{
-			tmp=tmp->prev;
-			n++;
-		}
-		if (n)
-		{
-			if (tmp==NULL) //currently compared node is smallest
+			tmp = curr;
+			while (tmp != NULL && tmp->n > swap->n)
 			{
-				tmp=*list;
-				end->prev=NULL;
-				end->next=tmp;
-				end->next->prev=end;
-				*list=end;
+				tmp->next = swap->next;
+				if (tmp->next != NULL)
+					tmp->next->prev = tmp;
+				swap->prev = tmp->prev;
+				if (swap->prev != NULL)
+					swap->prev->next = swap;
+				else
+					*list = swap;
+				tmp->prev = swap;
+				swap->next = tmp;
+				print_list(*list);
+				tmp = swap->prev;
 			}
-			else
-			{ //currently compared node should lie in between somewhere in sorted list
-				tmp->prev->next=end;
-				end->prev=tmp->prev;
-				tmp->prev=end;
-				end->next=tmp;
-			}
-			cur->next=NULL; //making the next pointer on node previous to currently compared node as NULL 
+			continue;
 		}
+		curr = curr->next;
 	}
-} 
+}
