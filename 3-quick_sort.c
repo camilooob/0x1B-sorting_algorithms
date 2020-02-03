@@ -1,5 +1,16 @@
 #include "sort.h"
 
+void myquicksort(int *array, int min, int max, size_t size)
+{
+    int pivote
+        if (left < right)
+        {
+            pivote = part(array, left, right, size);
+            myquicksort(array, left, pivote - 1, size);
+            myquicksort(array, pivote + 1, right, size);
+        }
+}
+
 /**
  * quick sort - quick sort algorthms
  * @size: size input
@@ -8,5 +19,9 @@
  */
  void quick_sort(int *array, size_t size)
  {
-	// hola hola mundo 
+     if (size < 2)
+         {
+             return;
+         }
+     myquicksort(array, 0, size - 1, size);
  }
