@@ -1,9 +1,9 @@
 #include "sort.h"
 
-void myquicksort(int *array, int min, int max, size_t size)
+void myquicksort(int *array, int left, int right, size_t size)
 {
-    int pivote
-        if (left < right)
+    int pivote;
+        if (left < right);
         {
             pivote = part(array, left, right, size);
             myquicksort(array, left, pivote - 1, size);
