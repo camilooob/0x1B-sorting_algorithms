@@ -26,7 +26,7 @@ void myswap(int *array, int firts, int second, int size)
 /**
  * part - part to a pivot
  *
- * @array: data sort input 
+ * @array: data sort input
  * @left: left
  * @right: right
  * @size: size input
@@ -51,10 +51,10 @@ int part(int *array, int left, int right, size_t size)
 }
 
 /**
- * quicksort -  quick sort algorithm
+ * myquicksort -  quick sort algorithm
  *
  * @array: data to sort
- * @left: Left pivote
+ * @left: left pivote
  * @right: right pivote
  * @size: size input
  * Return: No Return
