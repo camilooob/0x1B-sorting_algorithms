@@ -1,18 +1,16 @@
 #include "sort.h"
 
 /**
- * myswap - swaps two values
+ * myswapy - swaps values 
  *
- * @array: data sort input
- * @firts: first
- * @second: second
- * @size: size
+ * @array: sort data 
+ * @i: first num
+ * @j: second num
  *
  * Return: No Return
  */
 void myswapy(int *array, int i, int j)
 {
-
 	int tmp;
 
 	tmp = array[i];
@@ -21,47 +19,42 @@ void myswapy(int *array, int i, int j)
 }
 
 /**
- * part - part to a pivot
+ * part - sorts a partition
  *
- * @array: data sort input
+ * @array: data to sort
  * @left: left
  * @right: right
- * @size: size input
+ * @size: size of data
  *
- * Return: New pivote
+ * Return: Pivote new
  */
 int part(int *array, int left, int right, size_t size)
 {
-	int i, j, pivot  = array[right];
+	int i, j, pivot = array[right];
 
-	for (i = left, j = right; 1 ; i++, j--)
+	for (i = left, j = right; 1; i++, j--)
 	{
 		while (array[i] < pivot)
-		{
 			i++;
-		}
-		while (array[j] > pivot)
-		{
-			j--;
-		}
-		if (i >= j)
-		{
-			return (i);
-		}
-	}
-	myswapy(array, i, j);
-	print_array(array, size);
 
-	return (i);
+		while (array[j] > pivot)
+			j--;
+
+		if (i >= j)
+			return (i);
+		myswapy(array, i, j);
+		print_array(array, size);
+	}
 }
 
 /**
- * myquicksort -  quick sort algorithm
+ * quicksort -  sorts an array Quick sort algorithm Lomuto partition scheme
  *
  * @array: data to sort
- * @left: left pivote
- * @right: right pivote
- * @size: size input
+ * @left: left 
+ * @right: right 
+ * @size: size data
+ *
  * Return: No Return
  */
 void myquicksort(int *array, int left, int right, size_t size)
@@ -72,21 +65,21 @@ void myquicksort(int *array, int left, int right, size_t size)
 	{
 		pivote = part(array, left, right, size);
 		myquicksort(array, left, pivote - 1, size);
-		myquicksort(array, pivote + 1, right, size);
+		myquicksort(array, pivote, right, size);
 	}
 }
 
 /**
- * quick_sort_hhoare -  quick sort algorithm
+ * quick_sort_hoare -  sorts an array withh Quick sort algorithm Hoare
  *
- * @array: sort data
- * @size: size input
+ * @array: data to sort
+ * @size: size of data
  *
  * Return: No Return
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (size < 2 || !array )
+	if (!array || size < 2)
 		return;
 
 	myquicksort(array, 0, size - 1, size);
