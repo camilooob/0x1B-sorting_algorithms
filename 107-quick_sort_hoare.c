@@ -1,9 +1,9 @@
 #include "sort.h"
 
 /**
- * myswapy - swaps values 
+ * myswapy - swaps values
  *
- * @array: sort data 
+ * @array: sort data
  * @i: first num
  * @j: second num
  *
@@ -48,11 +48,11 @@ int part(int *array, int left, int right, size_t size)
 }
 
 /**
- * quicksort -  sorts an array Quick sort algorithm Lomuto partition scheme
+ * myquicksort -  sorts with Quick sort algorithm Lomuto partition scheme
  *
  * @array: data to sort
- * @left: left 
- * @right: right 
+ * @left: left
+ * @right: right
  * @size: size data
  *
  * Return: No Return
